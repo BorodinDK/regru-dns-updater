@@ -6,7 +6,12 @@ const auth = {
   password: process.env.REGRU_PASSWORD,
 };
 
+console.log(auth);
+
 export const reg = async(path = "/", inputData: object = {}) => {
+
+  console.log(auth);
+
   const query: any = qs.encode({
     input_data: JSON.stringify({
       ...auth,

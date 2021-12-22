@@ -10,13 +10,16 @@ services:
     container_name: ${PROJECT_NAME}
     environment:
       NODE_ENV: production
+      PASSWORD: ${PASSWORD}
+      REGRU_DOMAIN: ${REGRU_DOMAIN}
+      REGRU_USERNAME: ${REGRU_USERNAME}
+      REGRU_PASSWORD: ${REGRU_PASSWORD}
     image: ghcr.io/borodindk/regru-dns-updater:master
     restart: always
     ports: [8800]
     labels:
       - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`)"
-      - "traefik.http.routers.${PROJECT_NAME}.entrypoints=https"
-      - "traefik.http.routers.${PROJECT_NAME}.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.${PROJECT_NAME}.entrypoints=http"
 networks:
   default:
     external:
