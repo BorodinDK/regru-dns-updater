@@ -6,6 +6,10 @@ const POST = 8800;
 const SUBDOMAINS = ['@', '*'];
 const DOMAIN = process.env.REGRU_DOMAIN;
 
+app.get('/', (req, res) => {
+  res.send({ ok: true });
+})
+
 app.get('/ip_update', async (req, res) => {
   const { ip } = req.query;
 

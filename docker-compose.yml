@@ -17,7 +17,6 @@ services:
       - "traefik.http.routers.${PROJECT_NAME}.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.${PROJECT_NAME}.entrypoints=https"
       - "traefik.http.routers.${PROJECT_NAME}.tls.certresolver=letsEncrypt"
-
 networks:
   default:
     external:
